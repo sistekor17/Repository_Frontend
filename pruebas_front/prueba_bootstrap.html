@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="C:\Users\JAMES\OneDrive\Documents\Curso_Argentina_programa\Pagina web\Repositorio_Front_end\prueba_bootstrap.html">Ir a Prueba bootstrap</a>
+    <a href="C:\Users\JAMES\OneDrive\Documents\Curso_Argentina_programa\Pagina web\Repositorio_Front_end\tablas_bootstrap.html">Ir a tablas</a>
+    <a href="C:\Users\JAMES\OneDrive\Documents\Curso_Argentina_programa\Pagina web\Repositorio_Front_end\figuras_bootstrap.html">Ir a Figuras</a>
+  </nav>
+
+<div class="container-fluid">
+  <h1>Columnas de ancho automatico </h1>
+  <p>Note: Try to add a new div with class="col" inside the row class - this will create four equal-width columns.</p>
+  <p>El container fluido siempre ocupa el ancho de la pagina y se adapta si esta se expande o se contrae.</p>
+  <!-- Dentro de la fila se pueden crear hasta 12 columnas -->
+  <div class="row"> 
+    <div class="col" style="background-color:lavender;">.col1</div>
+    <div class="col" style="background-color:orange;">.col2</div>
+    <div class="col" style="background-color:rgb(147, 28, 40);">.col3</div>
+    <div class="col" style="background-color:rgb(58, 16, 193);">.col4</div>
+  </div>
+</div>
+<div class = "container">
+  <h1>Columnas de ancho definido</h1>
+  <p>El container definido tiene un ancho maximo definido en la pagina y se adapta si esta se contrae.</p>
+  <div class="row">
+    <div class="col-4" style="background-color:rgb(244, 224, 10);">.col1, 4col ancho</div>
+    <div class="col-3" style="background-color:rgb(13, 234, 35);">.col2, 3col ancho</div>
+    <div class="col-5" style="background-color:rgb(147, 28, 40);">.col3, 5col ancho</div>
+  </div>
+  <p>La suma de las tres columnas da un total de 12 columnas</p>
+</div>
+<div class = "container">
+  <h1>Columnas de ancho definido</h1>
+  <p>El container definido tiene un ancho maximo definido en la pagina y se adapta si esta se contrae.</p>
+  <div class="row">
+    <div class="col-sm-4" style="background-color:rgb(244, 224, 10);">.col1, 4col ancho, sm >= 576px</div>
+    <div class="col-sm-8" style="background-color:rgb(13, 234, 35);">.col2, 8col ancho</div>  
+  </div>
+</div>
+<div class="container">
+    <h1>Columnas de ancho mixto</h1>
+    <p>Las columnas laterales tienen ancho fluido y la central ancho definido</p>
+  <div class="row">
+    <div class="col" style="background-color:rgb(244, 224, 10);"> .col</div>
+    <div class="col-6" style="background-color: orange;"> .col-6 </div>
+   <div class="col" style="background-color:yellow ;"> .col</div>
+  </div>
+</div>
+
+<h1>Imagenes responsivas</h1>
+<p>Esto arroja una img de maximo 770 x 250 y se adapta si la pagina se reduce. </p>
+<img src = "https://imagenes.20minutos.es/files/image_990_v3/uploads/imagenes/2022/10/05/one-piece-film-red.jpeg" alt = "imagen de prueba" class="img-fluid" alt = "One piece">
+
+<p> En este caso  da una img miniatura de 200 x 200</p>
+<img src = "https://m1.paperblog.com/i/269/2693146/imprimibles-miniaturas-L-1lzdQJ.jpeg" alt = "imagen de prueba" class="img-thumbnail" alt = "One piece">
+<p> En este caso  da una img miniaturas de 200 x 200 paralelas</p>
+<img src="https://m1.paperblog.com/i/269/2693146/imprimibles-miniaturas-L-1lzdQJ.jpeg" class ="rounded float-start" alt="...">
+<img src="https://m1.paperblog.com/i/269/2693146/imprimibles-miniaturas-L-1lzdQJ.jpeg" class= "rounded float-end" alt="...">
+</body>
+</html>
