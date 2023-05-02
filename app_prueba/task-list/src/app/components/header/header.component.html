@@ -1,0 +1,9 @@
+<header>
+    <h1>{{title}}</h1>
+    <!-- color = "{{showAddTask ? 'green' : 'red'}}" Cambia el color del boton dependiendo el valor del boolean y lo mismo con el nombre del boton -->
+    <app-button 
+        color = "{{showAddTask ? 'red' : 'green'}}"
+        text = "{{showAddTask ?  'Close Task' : 'Add Task'}}"    
+        (onBtnClick)="toggleAddTask()"        
+    ></app-button>
+</header>

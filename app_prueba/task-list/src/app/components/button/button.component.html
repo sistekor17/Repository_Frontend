@@ -1,0 +1,6 @@
+<!-- como la variable color es una propiedad del estilo se utiliza la directiva ngStyle
+     Fijarce como la directiva esta encerrada en corchetes y el evento click en parentesis -->
+<button class = "btn" 
+        [ngStyle]="{'background-color': color}"
+        (click) = "btnClick()"
+        >{{text}}</button>
