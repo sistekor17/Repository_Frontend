@@ -16,7 +16,6 @@ export class HeaderComponent {
 
   ngOnInit(): void{
     this.profilesService.getPersona().subscribe(data =>{this.persona = data});
-    console.log();
   }
-
+  
 }
