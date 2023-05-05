@@ -15,8 +15,9 @@ export class ExperienciaComponent {
   isLogged:boolean = false;
   experiencias: Experiencia[]=[];
   subcription? :Subscription ;
-  showAddExp : boolean = true;
+  showAddExp : boolean = false;
 
+  // Contructor
   constructor(private tokenService: TokenService, private sExperiencia: ExperienciaService, private uiServ : UiService){
     this.subcription = this.uiServ.onToggle().subscribe(
       (value) => {this.showAddExp = value}
@@ -36,6 +37,20 @@ export class ExperienciaComponent {
       this.isLogged = false;
     }
   }
+
+    toggleShowAddEp(){
+      this.uiServ.toggleVisibilityExp();
+    }
+
+    create(newExp: Experiencia){
+      this.sExperiencia.crear(newExp).subscribe(data => {
+        this.toggleShowAddEp()
+        alert("Experiencia creada correctamente.")
+        this.cargarExperiencia();
+        },err => {
+          alert("No se puedo crear la nueva experiencia.");})
+          
+      }
 
     delete(id : number){
       if(id != undefined && this.isLogged == true)

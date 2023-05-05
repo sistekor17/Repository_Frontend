@@ -1,6 +1,4 @@
-.close{
-  position: relative;
-  display: block;
-  right: -62em;
-  font-size: large;
+.separacion{
+ margin-left: 8em;
+ margin-right: 8em;
 }

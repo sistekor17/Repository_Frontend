@@ -18,4 +18,8 @@ export class ExperienciaService {
   public delete(id: number):Observable<any>{
     return this.httpClient.delete<any>(this.url + `delete/${id}`);
     }
+
+  public crear(newExp : Experiencia):Observable<any>{
+    return this.httpClient.post<any>(this.url + 'create', newExp);
+    }
 }

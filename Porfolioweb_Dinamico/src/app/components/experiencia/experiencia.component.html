@@ -7,12 +7,15 @@
           <div class = col-lg-11>
 
             <h2>Experiencia</h2>
-            <app-exp-modulo></app-exp-modulo>
+            
           </div>
           <div class = "col-lg-1  d-flex justify-content-end">
-            <div><button class = "button btn buton__pencil" type="button" ><i class="bi bi-plus-square-fill"></i></button> </div></div>
+            <div><button class = "button btn buton__pencil" type="button"  (click)="toggleShowAddEp()"><i class="bi bi-plus-square-fill"></i></button> </div></div>
         </div>
-
+            <app-exp-modulo
+            class=" justify-content-center"
+            (onAddExp)="create($event)"
+            ></app-exp-modulo>
       <div class="container">
         
         <div class ="row gx-5 borde__sombreadofilas" *ngFor = "let experiencia of experiencias">
@@ -25,8 +28,9 @@
           
           </div>
           <div class = "col-lg-2 order__button">
-        
+              <!-- ediar -->
             <div><button class = "button btn buton__pencil" type="submit" ><i class="bi bi-pen-fill"></i></button> </div>
+            <!-- borrar -->
             <div><button class = "button btn buton__pencil" type="button" *ngIf="isLogged" (click)="delete(experiencia.id)"><i class="bi bi-trash3-fill"></i></button> </div>
         </div> 
     </div>
