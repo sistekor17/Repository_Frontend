@@ -14,4 +14,8 @@ export class ExperienciaService {
   public lista(): Observable<Experiencia[]>{
     return this.httpClient.get<Experiencia[]>(this.url + 'lista');
   }
+
+  public delete(id: number):Observable<any>{
+    return this.httpClient.delete<any>(this.url + `delete/${id}`);
+    }
 }

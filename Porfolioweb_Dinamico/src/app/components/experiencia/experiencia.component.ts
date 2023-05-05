@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,Output, EventEmitter } from '@angular/core';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { TokenService } from 'src/app/services/token.service';
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-experiencia',
@@ -12,14 +14,41 @@ export class ExperienciaComponent {
   
   isLogged:boolean = false;
   experiencias: Experiencia[]=[];
-  constructor(private tokenService: TokenService, private sExperiencia: ExperienciaService){}
+  subcription? :Subscription ;
+  showAddExp : boolean = true;
+
+  constructor(private tokenService: TokenService, private sExperiencia: ExperienciaService, private uiServ : UiService){
+    this.subcription = this.uiServ.onToggle().subscribe(
+      (value) => {this.showAddExp = value}
+    );
+  }
+ 
+  @Output() onAddExp = new EventEmitter();
+  
+  cargarExperiencia():void{
+    this.sExperiencia.lista().subscribe(data => {this.experiencias=data});}
 
   ngOnInit():void{
-    this.sExperiencia.lista().subscribe(data => {this.experiencias = data});
+    this.cargarExperiencia();
     if(this.tokenService.getToken()){
       this.isLogged = true;
     }else{
       this.isLogged = false;
     }
   }
+
+    delete(id : number){
+      if(id != undefined && this.isLogged == true)
+      {this.sExperiencia.delete(id).subscribe( data =>{
+            alert("Experiencia eliminada correctamente")
+            this. cargarExperiencia();}, err =>{
+            alert("no se pudo eliminar la experiencia")})} }
+    
+ 
+  
+    
+    
+        
+      
+  
 }

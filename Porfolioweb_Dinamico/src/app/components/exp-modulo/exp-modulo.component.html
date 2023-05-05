@@ -1,16 +1,66 @@
-<div class ="row gx-5 borde__sombreadofilas">
-  <div class = "col-lg-2 d-flex justify-content-center align-items-center"><img src="assets\images\icono_experiencia.png" alt="Icono experiencia" class = "img-fluid" width="80">
-  </div>
-  <div class = "col-lg-8" > 
-  <h4>Back end Developer</h4>
-  <p>
-    Empresa - tipo de jornada<br>
-     <time datetime="12-jan-2023"> fecha</time> hasta actualidad<br>
-     Lugar en donde se encontraba el trabajo<br>
-  </p>
-  </div>
-  <div class = "col-lg-2 order__button">
+<!-- Ventana flotante -->
+<!-- <div class="modal fade" [ngClass]="{'show':  showAddExp }" tabindex="-1" aria-labelledby="ventana-flotante-label" aria-hidden="true">
+  
+</div> -->
 
-    <div><button class = "button btn buton__pencil" type="button"><i class="bi bi-pen-fill"></i></button> </div>
-    <div><button class = "button btn buton__pencil" type="button"><i class="bi bi-trash3-fill"></i></button> </div>
-</div> 
+<div class = "separacion">
+  <div class="container">
+   <div class="row gx-5">
+    <div class="col-lg-12 borde__sombreado" >
+      <div class="container">
+        
+          
+            
+              
+                <!-- Contenido del formulario -->
+                <div class="pb-3 pt-3 ">  
+                  <i class="fa-solid fa-xmark close " style="color: #ff0000;" type = "submit"></i>
+                  <h4 class="modal-title " id="formulario-flotante-label">Añadir Experiencia</h4>
+                
+                  <hr>
+                  <form>
+                    <!-- Empresa input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form6Example3">Empresa</label>
+                      <input type="text" id="form6Example3" class="form-control" placeholder="Nombre de la empresa" [(ngModel)]="puesto" />  
+                    </div>
+                     <!-- Puesto input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form6Example3">Puesto de Trabajo</label>
+                      <input type="text" id="form6Example3" class="form-control" placeholder="Añada puesto de trabajo" [(ngModel)]="puesto" />  
+                    </div>
+        
+                    <!-- Inicio input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form6Example3">Inicio</label>
+                      <input type="text" id="form6Example3" class="form-control" placeholder="aaaa/mm/dd" [(ngModel)]="inicio" />  
+                    </div>
+        
+                    <!-- Fin input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form6Example3">Inicio</label>
+                      <input type="text" id="form6Example3" class="form-control" placeholder="aaaa/mm/dd" [(ngModel)]="fin" />  
+                    </div>
+                   <!-- Imagen input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form6Example3">Imagen</label>
+                      <input type="text" id="form6Example3" class="form-control" placeholder="URl de de imagen o logo de la empresa" [(ngModel)]="puesto" />  
+                    </div>
+                    
+                    <!-- Descripcion input -->
+                    <div class="form-outline mb-4">
+                    <label class="form-label" for="form6Example7"
+                     [(ngModel)]="descripcion">
+                     Descripcion de la experiencia laboral</label>
+                    <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                    </div>
+                    
+                    <button type = "submit" value = " Save Task"  class = "btn btn-dark btn-lg">Guardar</button>
+                  </form>
+                </div>  
+         </div>
+     
+      </div>
+     </div>
+    </div>
+  </div>

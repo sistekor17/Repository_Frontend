@@ -1,0 +1,6 @@
+.close{
+  position: relative;
+  display: block;
+  right: -62em;
+  font-size: large;
+}
