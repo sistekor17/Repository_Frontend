@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Persona } from '../model/persona.model';
 
 
@@ -9,13 +9,23 @@ import { Persona } from '../model/persona.model';
 })
 export class ProfilesService {
   
-  apiURL = 'http://localhost:8080/persona';
+  apiURL = 'http://localhost:8080/persona/';
 
   constructor(private http:HttpClient) { }
 
    public getPersona(): Observable<Persona> {
 
-      return this.http.get<Persona>(this.apiURL + '/detail/1');
+      return this.http.get<Persona>(this.apiURL + 'detail/1');
+   }
+
+   public updatePersona( editPerfil : Persona): Observable<any>{
+      console.log(editPerfil);
+      return this.http.put<any>(this.apiURL + 'update/1', editPerfil).pipe(
+         catchError((error: HttpErrorResponse) => {
+           console.error('Error al actualizar el perfil:', error);
+           return throwError(error);
+         })
+       );
    }
 
    

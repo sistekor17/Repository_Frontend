@@ -30,9 +30,6 @@ export class ExpModuloComponent {
     this.subcription = this.uiServ.onToggleAdd().subscribe(
       (value) => {
         this.showAddExp = value});
-    this.subcription = this.uiServ.onToggleEdit().subscribe(
-      (value) => {
-        this.showEditExp = value});
   }
 
   toggleShowAddExp(){

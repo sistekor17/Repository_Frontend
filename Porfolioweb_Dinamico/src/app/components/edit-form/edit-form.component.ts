@@ -12,12 +12,12 @@ export class EditFormComponent {
   @Output() onEditExp :EventEmitter<Experiencia> = new EventEmitter();
 
   id : number = null!;
-  puesto : string = "";
-  inicio : string = "";
-  fin : string = "";
-  descripcion : string = "";
-  imagen : string = "";
-  empresa : string = "";
+  puesto : string = null!;
+  inicio : string = null!;
+  fin : string = null!;
+  descripcion : string = null!;
+  imagen : string = null!;
+  empresa : string = null!;
   showEditExp : boolean = false;
   subcription? :Subscription ;
   

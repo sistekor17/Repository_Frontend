@@ -66,9 +66,9 @@ export class ExperienciaComponent {
 
     edit(id: number, editexp : Experiencia) {
       this.sExperiencia.editar(id, editexp).subscribe(data => {
+        this.uiServ.toggleVisibilityEditExp();
         alert("Experiencia modificada correctamente.")
         this.cargarExperiencia();
-        this.uiServ.toggleVisibilityEditExp();
         },err => {
           alert("No se puedo editar la experiencia.");});
         
