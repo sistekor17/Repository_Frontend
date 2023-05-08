@@ -13,15 +13,21 @@ import { Subscription } from 'rxjs';
 export class ExperienciaComponent {
   
   isLogged:boolean = false;
+  idEdit : number = null!;  
   experiencias: Experiencia[]=[];
   subcription? :Subscription ;
   showAddExp : boolean = false;
+  showEditExp : boolean = false;
 
   // Contructor
   constructor(private tokenService: TokenService, private sExperiencia: ExperienciaService, private uiServ : UiService){
-    this.subcription = this.uiServ.onToggle().subscribe(
-      (value) => {this.showAddExp = value}
-    );
+    this.subcription = this.uiServ.onToggleAdd().subscribe(
+      (value) => {
+        this.showAddExp = value});
+    this.subcription = this.uiServ.onToggleEdit().subscribe(
+      (value) => {
+        this.showEditExp = value});
+
   }
  
   @Output() onAddExp = new EventEmitter();
@@ -42,6 +48,13 @@ export class ExperienciaComponent {
       this.uiServ.toggleVisibilityExp();
     }
 
+    toggleShowEditExp(id:number){
+      this.uiServ.toggleVisibilityEditExp();
+      //capatura el id de la exp a modificar.
+      this.idEdit = id;
+    }
+
+
     create(newExp: Experiencia){
       this.sExperiencia.crear(newExp).subscribe(data => {
         this.toggleShowAddEp()
@@ -49,8 +62,17 @@ export class ExperienciaComponent {
         this.cargarExperiencia();
         },err => {
           alert("No se puedo crear la nueva experiencia.");})
-          
-      }
+    }
+
+    edit(id: number, editexp : Experiencia) {
+      this.sExperiencia.editar(id, editexp).subscribe(data => {
+        alert("Experiencia modificada correctamente.")
+        this.cargarExperiencia();
+        this.uiServ.toggleVisibilityEditExp();
+        },err => {
+          alert("No se puedo editar la experiencia.");});
+        
+    }
 
     delete(id : number){
       if(id != undefined && this.isLogged == true)

@@ -57,7 +57,7 @@ text-align: center;
   margin-top: -3em;
 
 }
-.buton__pencil{
+.button__pencil{
   font-size: 1.1em;
   position:relative;
   padding: 1px;
@@ -80,11 +80,7 @@ text-align: center;
 .badge {
   margin-right: 5px;
 }
-.description__me{
-  padding-top: 20px;
-
-}
-.description-me .buton__pencil{
+.description-me .button__pencil{
   margin-top: -3em;
 }
 .separacion{
@@ -100,8 +96,11 @@ text-align: center;
   border: 1px solid #ccc;
   box-shadow: 7px 7px 15px #a4a3a3;
   border-radius: 20px;
-  background-color:#e8e8e8;
+  background-color:#e8e8e8;  
 
+}
+.borde__filas{
+  width: 97%;
 }
 .borde__sombreadofilas{
   border: 1px solid #ccc;

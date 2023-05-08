@@ -6,18 +6,27 @@ import { Observable, Subject } from 'rxjs';
 })
 export class UiService {
   private showAddExp : boolean = false;
-  private subjet = new Subject<any> ();
+  private showEditExp : boolean = false;
+  private subjetAdd = new Subject<any> ();
+  private subjetEdit = new Subject<any> ();
   
   constructor() { }
 
   //Para cambiar el valor booleano desde el componente padre hacia el componente hijo.
   toggleVisibilityExp():void{
-    console.log("fincion toggleVisibilityExp ");
     this.showAddExp = !this.showAddExp;
-    this.subjet.next(this.showAddExp);
+    this.subjetAdd.next(this.showAddExp);
+  }
+  toggleVisibilityEditExp():void{
+    this.showEditExp = !this.showEditExp;
+    this.subjetEdit.next(this.showEditExp);
+    
   }
  // El método onToggle() devuelve un observable que notificará a los componentes que se suscriban cada vez que el valor de this.subjet cambie. De esta manera, los componentes pueden estar atentos a los cambios en el estado de un objeto y actuar en consecuencia.
-  onToggle(): Observable<any> {
-    return this.subjet.asObservable();
+  onToggleAdd(): Observable<any> {
+    return this.subjetAdd.asObservable();
+  }
+  onToggleEdit(): Observable<any> {
+    return this.subjetEdit.asObservable();
   }
 }

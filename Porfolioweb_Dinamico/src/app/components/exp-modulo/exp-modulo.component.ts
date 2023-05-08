@@ -14,6 +14,7 @@ import { Experiencia } from 'src/app/model/experiencia';
 export class ExpModuloComponent {
   @Output() onAddExp :EventEmitter<Experiencia> = new EventEmitter();
   
+
   id : number = null!;
   puesto : string = "";
   inicio : string = "";
@@ -22,17 +23,22 @@ export class ExpModuloComponent {
   imagen : string = "";
   empresa : string = "";
   showAddExp : boolean = false;
+  showEditExp : boolean = false;
   subcription? :Subscription ;
 
-  constructor(private uiServ : UiService){this.subcription = this.uiServ.onToggle().subscribe(
-    (value) => {this.showAddExp = value}
-  );
-};
-
-  toggleShowAddEp(){
-  this.uiServ.toggleVisibilityExp();
+  constructor(private uiServ : UiService){
+    this.subcription = this.uiServ.onToggleAdd().subscribe(
+      (value) => {
+        this.showAddExp = value});
+    this.subcription = this.uiServ.onToggleEdit().subscribe(
+      (value) => {
+        this.showEditExp = value});
   }
 
+  toggleShowAddExp(){
+  this.uiServ.toggleVisibilityExp();
+  }
+  
   onSubmitExp(){
    const {id, puesto, inicio, fin, descripcion, imagen, empresa} = this;
    const newExp = {id, puesto, inicio, fin, descripcion, imagen, empresa};
@@ -40,5 +46,6 @@ export class ExpModuloComponent {
    this.onAddExp.emit(newExp);
   }
 
- 
+  
 }
+
